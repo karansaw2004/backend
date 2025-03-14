@@ -1,27 +1,18 @@
-// require('dotenv').config({path:'./env'})
-
 import dotenv from 'dotenv';
-
-
 import connectDB from "./db/db.js";
 import { app } from './app.js';
 
-
-dotenv.config({path:'./env'})
-
+dotenv.config({ path: './.env' });
 
 connectDB()
-.then(()=>{
-    
-    app.listen(process.env.PORT,()=>{
-        console.log(`server is started at port no: ${process.env.PORT}`);
+  .then(() => {
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is started at port no: ${process.env.PORT}`);
     });
-})
-.catch((err)=>{
-    console.log("database connection Failed: ",err);
-})
-
-
+  })
+  .catch((err) => {
+    console.log("Database connection failed: ", err);
+  });
 
 
 
